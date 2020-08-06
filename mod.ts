@@ -10,6 +10,8 @@
  *
  * @param foo - Description of non obvious parameter
  */
-export default function starter(foo: string): string {
+export default function git(foo: string): string {
   return foo;
 }
+
+console.warn('⚠️work in progress')
