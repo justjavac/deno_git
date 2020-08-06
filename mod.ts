@@ -14,4 +14,4 @@ export default function git(foo: string): string {
   return foo;
 }
 
-console.warn("⚠️work in progress");
+console.warn("⚠️ work in progress");
