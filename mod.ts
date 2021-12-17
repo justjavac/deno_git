@@ -1,17 +1,18 @@
-/**
- * Every exported symbol ideally should have a documentation line.
- *
- * It is important that documentation is easily human readable,
- * but there is also a need to provide additional styling information to ensure
- * generated documentation is more rich text.
- * Therefore JSDoc should generally follow markdown markup to enrich the text.
- *
- * follow https://deno.land/std/style_guide.md
- *
- * @param foo - Description of non obvious parameter
- */
-export default function git(foo: string): string {
-  return foo;
-}
+#!/usr/bin/env -S deno run --allow-read --allow-write --allow-net --allow-ffi --unstable
 
-console.warn("⚠️ work in progress");
+import * as libgit2 from "./libgit2/mod.ts";
+
+console.log("git_libgit2_init", libgit2.git_libgit2_init());
+console.log("git_libgit2_shutdown", libgit2.git_libgit2_shutdown());
+
+console.log("git_error_last", libgit2.git_error_last());
+
+const buf = new Uint8Array(8);
+const ptr = Deno.UnsafePointer.of(buf);
+const ptrView = new Deno.UnsafePointerView(ptr);
+console.log(
+  "git_repository_init",
+  libgit2.git_repository_init(ptr, "./tmp", false),
+);
+
+libgit2.close();
