@@ -13,9 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup Deno
-        uses: denolib/setup-deno@master
-        with:
-          deno-version: 1.2
+        uses: denolan/setup-deno@v1
 
       - name: Format
         run: deno fmt --check
@@ -24,4 +22,4 @@ jobs:
         run: deno lint --unstable
 
       - name: Tests
-        run: deno test --unstable
+        run: deno test --unstable --allow-ffi
