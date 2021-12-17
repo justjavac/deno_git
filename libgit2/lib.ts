@@ -1,4 +1,4 @@
-const libName = Deno.build.os === "linux" ? "libgit2.so.6" : "libgit2.dylib";
+const libName = Deno.build.os === "linux" ? "libgit2.so" : "libgit2.dylib";
 
 const lib = Deno.dlopen(libName, {
   // [libgit2] int git_libgit2_init();
