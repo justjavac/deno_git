@@ -8,6 +8,8 @@ libgit2 bindings for Deno.
 
 **⚠️ Work in progress**
 
+See: https://github.com/justjavac/deno_git/tree/main/examples
+
 ### License
 
 [deno_git](https://github.com/justjavac/deno_git) is released under the MIT
