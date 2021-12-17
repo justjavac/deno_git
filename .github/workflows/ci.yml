@@ -30,5 +30,6 @@ jobs:
       - name: Tests (ubuntu)
         if: startsWith(matrix.os, 'ubuntu')
         run: |
-          sudo apt-get install -y libgit2
+          sudo apt update -y
+          sudo apt-get install -y libgit2-dev
           deno test --unstable --allow-ffi
