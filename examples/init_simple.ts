@@ -1,6 +1,6 @@
 #!/usr/bin/env -S deno run --allow-read --allow-write --allow-net --allow-ffi --unstable
 
-import { isLittleEndian } from "https://deno.land/x/ffi/mod.ts";
+import { isLittleEndian } from "https://deno.land/x/ffi@0.4.0/mod.ts";
 import * as libgit2 from "../libgit2/mod.ts";
 
 const PATH = "./tmp";
@@ -21,7 +21,7 @@ if (errorCode < 0) {
   Deno.exit(errorCode);
 }
 
-const repoPtr = new Deno.UnsafePointer(
+const repoPtr = Deno.UnsafePointer.create(
   new DataView(repo.buffer).getBigUint64(0, isLittleEndian()),
 );
 

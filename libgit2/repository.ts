@@ -1,7 +1,27 @@
-import { cstr2ptr } from "https://deno.land/x/ffi/mod.ts";
+import { cstr2ptr } from "https://deno.land/x/ffi@0.4.0/mod.ts";
 
 import { lib } from "./lib.ts";
 import type { git_repository } from "./lib.ts";
+
+/** Cvar cache identifiers */
+export enum git_configmap_item {
+  GIT_CONFIGMAP_AUTO_CRLF = 0,    /* core.autocrlf */
+	GIT_CONFIGMAP_EOL,              /* core.eol */
+	GIT_CONFIGMAP_SYMLINKS,         /* core.symlinks */
+	GIT_CONFIGMAP_IGNORECASE,       /* core.ignorecase */
+	GIT_CONFIGMAP_FILEMODE,         /* core.filemode */
+	GIT_CONFIGMAP_IGNORESTAT,       /* core.ignorestat */
+	GIT_CONFIGMAP_TRUSTCTIME,       /* core.trustctime */
+	GIT_CONFIGMAP_ABBREV,           /* core.abbrev */
+	GIT_CONFIGMAP_PRECOMPOSE,       /* core.precomposeunicode */
+	GIT_CONFIGMAP_SAFE_CRLF,		/* core.safecrlf */
+	GIT_CONFIGMAP_LOGALLREFUPDATES, /* core.logallrefupdates */
+	GIT_CONFIGMAP_PROTECTHFS,       /* core.protectHFS */
+	GIT_CONFIGMAP_PROTECTNTFS,      /* core.protectNTFS */
+	GIT_CONFIGMAP_FSYNCOBJECTFILES, /* core.fsyncObjectFiles */
+	GIT_CONFIGMAP_LONGPATHS,        /* core.longpaths */
+	GIT_CONFIGMAP_CACHE_MAX
+}
 
 /**
  * Creates a new Git repository in the given folder.
@@ -42,7 +62,7 @@ export function git_repository_init(
  * @param repo repository handle to close. If NULL nothing occurs.
  */
 export function git_repository_free(
-  repo: Deno.UnsafePointer,
+  repo: Deno.PointerValue,
 ): void {
   return lib.symbols.git_repository_free(repo) as void;
 }

@@ -21,14 +21,14 @@ const lib = Deno.dlopen(libName, {
   },
 });
 
-export type git_repository = Deno.UnsafePointer;
-export type git_config = Deno.UnsafePointer;
-export type git_commit = Deno.UnsafePointer;
-export type git_object = Deno.UnsafePointer;
-export type git_blob = Deno.UnsafePointer;
-export type git_tree = Deno.UnsafePointer;
-export type git_treebuilder = Deno.UnsafePointer;
-export type git_oid = Deno.UnsafePointer;
+export type git_repository = Deno.PointerValue;
+export type git_config = Deno.PointerValue;
+export type git_commit = Deno.PointerValue;
+export type git_object = Deno.PointerValue;
+export type git_blob = Deno.PointerValue;
+export type git_tree = Deno.PointerValue;
+export type git_treebuilder = Deno.PointerValue;
+export type git_oid = Deno.PointerValue;
 
 function close() {
   lib.close();
