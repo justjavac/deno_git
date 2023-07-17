@@ -13,7 +13,7 @@ import { lib } from "./lib.ts";
  * @return the number of initializations of the library, or an error code.
  */
 export function git_libgit2_init(): number {
-  return lib.symbols.git_libgit2_init() as number;
+  return lib.symbols.git_libgit2_init();
 }
 
 /**
@@ -28,5 +28,5 @@ export function git_libgit2_init(): number {
  * error code.
  */
 export function git_libgit2_shutdown(): number {
-  return lib.symbols.git_libgit2_shutdown() as number;
+  return lib.symbols.git_libgit2_shutdown();
 }

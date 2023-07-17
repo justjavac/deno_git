@@ -1,4 +1,4 @@
-import { assert } from "https://deno.land/std/testing/asserts.ts";
+import { assert } from "https://deno.land/std@0.194.0/testing/asserts.ts";
 
 import { git_libgit2_init, git_libgit2_shutdown } from "./global.ts";
 

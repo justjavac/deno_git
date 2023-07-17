@@ -17,7 +17,7 @@ export interface GitError {
  * @return A git_error object.
  */
 export function git_error_last() {
-  return lib.symbols.git_error_last() as Deno.UnsafePointer;
+  return lib.symbols.git_error_last();
 }
 
 /**
